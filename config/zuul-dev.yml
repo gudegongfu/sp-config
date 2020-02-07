@@ -10,14 +10,15 @@ zuul:
   routes:    item-service: /item-service/**
     user-service: /user-service/**
     order-service: /order-service/**
-    retryable: true  #默认false,zuul不推荐使用重试
+  #  retryable: true  #默认false,zuul不推荐使用重试
   
 ribbon:
   ConnectTimeout: 1000
   ReadTimeout: 1000
   MaxAutoRetries: 1
   MaxAutoRetriesNextServer: 2
-  
+
+#降低 hystrix 超时时间，以便测试降级  
 hystrix:
   command:
     default:
